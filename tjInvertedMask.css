@@ -1,0 +1,70 @@
+.tjInvertedMask {
+  position: relative;
+  height: 400px;
+  width: 700px;
+  background: white;
+  -webkit-text-stroke: 2px black; /* width and color */
+  color: transparent;
+  font-family: arial;
+  font-size: 8rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all .5s ease-out;
+  transform: translateY(20px);
+  opacity: 0;
+  animation: comeIn 1s ease-in-out forwards;
+}
+.tjInvertedMask p {
+  box-sizing: border-box;
+}
+.tjInvertedMaskinner {
+  height: 400px;
+  width: 700px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  background: black;
+  color: white;
+  font-family: arial;
+  font-size: 8rem;
+  font-weight: 900;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  clip-path: url('#clip');
+}
+.tjInvertedMask .hover_inner {
+  height: 75%;
+  width: 75%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+.tjInvertedMask svg {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+.tjInvertedMask #clipper {
+  opacity: 0;
+  transition: transform .5s ease-out;
+  transform-box: border-box;
+  transform-origin: center;
+
+}
+
+@keyframes comeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
