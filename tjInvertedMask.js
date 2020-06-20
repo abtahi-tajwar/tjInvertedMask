@@ -37,10 +37,12 @@ function initInvertedMask(text, color, startWidth)
     <div class="hover_inner"></div>
   `;
   console.log(document.querySelector(".tjInvertedMask").style.backgroundColor);
-  //document.querySelector(".tjInvertedMask").style.backgroundColor = color.primary;
-  //document.querySelector(".tjInvertedMask").style.webkitTextStroke = color.secondary;
+  document.querySelector(".tjInvertedMask").style.backgroundColor = color.primary;
+  document.querySelector(".tjInvertedMask").style.webkitTextStroke = "2px "+color.secondary;
+  document.querySelector(".tjInvertedMaskinner").style.backgroundColor = color.secondary;
+  document.querySelector(".tjInvertedMaskinner").style.color = color.primary;
 }
-function tjInvertedMask(cursor = "tj-cursor", text, radius = 45, color = {primary: "white", secondary: "black"}, startWidth = 35)
+function tjInvertedMask(text, cursor = "tj-cursor", radius = 45, color = {primary: "white", secondary: "black"}, startWidth = 35)
 {
     let tjCursorExists;
     if(cursor === 'tj-cursor') {
@@ -55,7 +57,7 @@ function tjInvertedMask(cursor = "tj-cursor", text, radius = 45, color = {primar
     initInvertedMask(text, color, startWidth);
 
     document.querySelector(".tjInvertedMask .hover_inner").addEventListener("mouseover", (event) => {
-      document.querySelector(".tjInvertedMask").style.color = "black";
+      document.querySelector(".tjInvertedMask").style.color = color.secondary;
       if(tjCursorExists === 1) {
         document.querySelector(".tj-cursor").style.opacity = "0";
         //Under Development
@@ -94,4 +96,4 @@ function tjInvertedMask(cursor = "tj-cursor", text, radius = 45, color = {primar
     })
   })
 }
-tjInvertedMask("", "work");
+tjInvertedMask("Damn", "", 45, {primary: "yellow", secondary: "blue"});
